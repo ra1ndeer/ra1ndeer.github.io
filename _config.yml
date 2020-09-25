@@ -1,5 +1,4 @@
-title: Minimal theme
+title: Project Iceberg
 logo: /imgs/logo.png
-description: Minimal is a theme for GitHub Pages.
-google_analytics:
+description: An agglomerate of posts on Statistics, Machine Learning and Deep Learning.
 theme: jekyll-theme-minimal

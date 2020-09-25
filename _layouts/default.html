@@ -29,14 +29,20 @@
         <p class="view"><a href="{{ site.github.repository_url }}">View the Project on GitHub <small>{{ site.github.repository_nwo }}</small></a></p>
         {% endif %}
 
-        <p>About Me</p>
-        <p>Posts</p>
+        <p><a href="https://ra1ndeer.github.io/">About Me</a></p>
 
-        <p>Find me on <a href="https://www.linkedin.com/in/ra1ndeer/" target="_blank">LinkedIn</a>, <a href="https://twitter.com/ra1nd33r" target="_blank">Twitter</a> and <a href="https://github.com/ra1ndeer" target="_blank">GitHub</a>.</p>
+        <p><a href="https://ra1ndeer.github.io/posts/posts_index.html">Posts</a></p>
 
-        {% if site.github.is_user_page %}
+        Find me on:
+        <ul>
+          <li><a href="https://www.linkedin.com/in/ra1ndeer/" target="_blank">LinkedIn</a></li>
+          <li><a href="https://twitter.com/ra1nd33r" target="_blank">Twitter</a></li>
+          <li><a href="https://github.com/ra1ndeer" target="_blank">GitHub</a></li>
+        </ul> 
+
+        <!--{% if site.github.is_user_page %}
         <p class="view"><a href="{{ site.github.owner_url }}">View My GitHub Profile</a></p>
-        {% endif %}
+        {% endif %}-->
 
         {% if site.show_downloads %}
         <ul class="downloads">

@@ -3,7 +3,7 @@
 
 Project Iceberg is what I call my personal blog. Here you can find posts on machine learning, deep learning, statistics and whatever else I feel like posting.
 
-## Posts
+## Recent Posts
 
 [The Kullback-Leibler Divergence between two Bernoulli Distributions](./posts/kl_divergence_bernoulli.html)
 

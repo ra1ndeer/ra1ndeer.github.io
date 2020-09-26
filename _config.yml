@@ -2,3 +2,5 @@ title: Project Iceberg
 logo: /imgs/logo.png
 description: An agglomerate of posts on Statistics, Machine Learning and Deep Learning.
 theme: jekyll-theme-minimal
+plugins:
+  - jekyll-sitemap

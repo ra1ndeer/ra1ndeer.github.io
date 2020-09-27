@@ -18,10 +18,14 @@ $$\log \int \frac{q_{\phi}(\mathbf{z}|\mathbf{x})}{q_{\phi}(\mathbf{z}|\mathbf{x
 
 And now for the most important step in deriving the evidence lower bound, applying Jensen's inequality. The most common formulation of Jensen's inequality states that for a convex function $f$ and a random variable $X$, we have that $f(\mathbb{E}[X]) \leq \mathbb{E}[f(X)]$. However, the logarithm is a concave function. Fortunately, Jensen's inequality can also be stated for concave functions: if $f$ is a concave function and $X$ a random variable, we have that $f(\mathbb{E}[X]) \geq \mathbb{E}[f(X)]$. Applying this to the equation above yields:
 
-$$\log \mathbb{E}_{q_{\phi}(\mathbf{z}|\mathbf{x})} \left[ \frac{p_{\theta}(\mathbf{x}|\mathbf{z}) p(\mathbf{z})}{q_{\phi}(\mathbf{z}|\mathbf{x})} \right] \geq \mathbb{E}_{q_{\phi}(\mathbf{z}|\mathbf{x})} \left[ \log \frac{p_{\theta}(\mathbf{x}|\mathbf{z}) p(\mathbf{z})}{ q_{\phi}(\mathbf{z}|\mathbf{x})} \right] = \mathbb{E}_{q_{\phi}(\mathbf{z}|\mathbf{x})}\left[ \log p_{\theta}(\mathbf{x}|\mathbf{z}) \right] - \mathbb{E}_{q_{\phi}(\mathbf{z}|\mathbf{x})}\left[ \log \frac{q_{\phi}(\mathbf{z}|\mathbf{x})}{p(\mathbf{z})} \right]$$
+$$\log \mathbb{E}_{q_{\phi}(\mathbf{z}|\mathbf{x})} \left[ \frac{p_{\theta}(\mathbf{x}|\mathbf{z}) p(\mathbf{z})}{q_{\phi}(\mathbf{z}|\mathbf{x})} \right] \geq \mathbb{E}_{q_{\phi}(\mathbf{z}|\mathbf{x})} \left[ \log \frac{p_{\theta}(\mathbf{x}|\mathbf{z}) p(\mathbf{z})}{ q_{\phi}(\mathbf{z}|\mathbf{x})} \right] =$$
+
+$$= \mathbb{E}_{q_{\phi}(\mathbf{z}|\mathbf{x})}\left[ \log p_{\theta}(\mathbf{x}|\mathbf{z}) \right] - \mathbb{E}_{q_{\phi}(\mathbf{z}|\mathbf{x})}\left[ \log \frac{q_{\phi}(\mathbf{z}|\mathbf{x})}{p(\mathbf{z})} \right]$$
 
 For those familiar with information theory, the rightmost term in the equation above is the Kullback-Leibler divergence of $q_{\phi}(\mathbf{z}|\mathbf{x})$ relative to $p(\mathbf{z})$, which means that we can summarize all the calculations above as:
 
-$$\log p_{\theta}(\mathbf{x}) \geq \mathbb{E}_{q_{\phi}(\mathbf{z}|\mathbf{x})}\left[ \log p_{\theta}(\mathbf{x}|\mathbf{z}) \right] - \mathcal{D}_{KL} \left[ q_{\phi}(\mathbf{z}|\mathbf{x}) || p(\mathbf{z}) \right] \equiv \mathcal{L}(\theta, \phi)$$
+$$\log p_{\theta}(\mathbf{x}) \geq \mathbb{E}_{q_{\phi}(\mathbf{z}|\mathbf{x})}\left[ \log p_{\theta}(\mathbf{x}|\mathbf{z}) \right] - \mathcal{D}_{KL} \left[ q_{\phi}(\mathbf{z}|\mathbf{x}) || p(\mathbf{z}) \right] \equiv $$
+
+$$\equiv \mathcal{L}(\theta, \phi)$$
 
 In other words, we have successfully derived the evidence lower bound (ELBO), $\mathcal{L}(\theta, \phi)$.

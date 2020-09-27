@@ -29,3 +29,7 @@ $$\log p_{\theta}(\mathbf{x}) \geq \mathbb{E}_{q_{\phi}(\mathbf{z}|\mathbf{x})}\
 $$\equiv \mathcal{L}(\theta, \phi)$$
 
 In other words, we have successfully derived the evidence lower bound (ELBO), $$\mathcal{L}(\theta, \phi)$$.
+
+### References
+
+* Diederik P. Kingma and Max Welling, *Auto-Encoding Variational Bayes*, arXiv:1312.6114

@@ -4,4 +4,4 @@ In the variational setting, it is usual to assume that the observations, $$\math
 
 $$\log p_{\theta}(\mathbf{x}) = \log \int p_{\theta}(\mathbf{x}, \mathbf{z}) d \mathbf{z}$$
 
-Variational inference concerns itself with this type of problems where there is some integral that cannot be computed analytically and requires some kind of approximation. By the definition of conditional probability, we can write $$p_{\theta}(\mathbf{x}, \mathbf{z})$$ as $$p_{\theta}(\mathbf{x}|\mathbf{z}) p(\mathbf{z})$$, where $$p_{\theta}(\mathbf{x}|\mathbf{z})$$ is the probability of a given observation $$\mathbf{x}$$ after observing $$\mathbf{z}$$ and $$p(\mathbf{z})$$ is the prior distribution of $$\mathbf{z}$$, over which some **a priori** assumption on its form is made:
+Variational inference concerns itself with this type of problems where there is some integral that cannot be computed analytically and requires some kind of approximation. By the definition of conditional probability, we can write $$p_{\theta}(\mathbf{x}, \mathbf{z})$$ 

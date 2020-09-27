@@ -4,19 +4,19 @@ In the variational setting, it is usual to assume that the observations, $$\math
 
 $$\log p_{\theta}(\mathbf{x}) = \log \int p_{\theta}(\mathbf{x}, \mathbf{z}) d \mathbf{z}$$
 
-Variational inference concerns itself with this type of problems where there is some integral that cannot be computed analytically and requires some kind of approximation. By the definition of conditional probability, we can write $p_{\theta}(\mathbf{x}, \mathbf{z})$ as $p_{\theta}(\mathbf{x}|\mathbf{z}) p(\mathbf{z})$, where $p_{\theta}(\mathbf{x}|\mathbf{z})$ is the probability of a given observation $\mathbf{x}$ after observing $\mathbf{z}$ and $p(\mathbf{z})$ is the prior distribution of $\mathbf{z}$, over which some *a priori* assumption on its form is made:
+Variational inference concerns itself with this type of problems where there is some integral that cannot be computed analytically and requires some kind of approximation. By the definition of conditional probability, we can write $$p_{\theta}(\mathbf{x}, \mathbf{z})$$ as $$p_{\theta}(\mathbf{x}|\mathbf{z}) p(\mathbf{z})$$, where $$p_{\theta}(\mathbf{x}|\mathbf{z})$$ is the probability of a given observation $$\mathbf{x}$$ after observing $$\mathbf{z}$$ and $$p(\mathbf{z})$$ is the prior distribution of $$\mathbf{z}$$, over which some *a priori* assumption on its form is made:
 
 $$
 \log \int p_{\theta}(\mathbf{x},\mathbf{z}) d\mathbf{z} = \log \int p_{\theta}(\mathbf{x}|\mathbf{z}) p(\mathbf{z}) d\mathbf{z}
 $$
 
-Currently in our derivation we have a prior distribution for $$\mathbf{z}$$, which is basically an educated guess as to what the latent distribution might look like. One of the quantities of interest is the posterior distribution of $$\mathbf{z}$$, which we will approximate by some density function $q$ parametrized by $$\phi$$, $q_{\phi}(\mathbf{z}|\mathbf{x})$. This function can be interpreted as the updated belief of how $$\mathbf{z}$$ behaves after observing $\mathbf{x}$. For the sake of mathematical convenience, let us multiply and divide the previous result by this probability density:
+Currently in our derivation we have a prior distribution for $$\mathbf{z}$$, which is basically an educated guess as to what the latent distribution might look like. One of the quantities of interest is the posterior distribution of $$\mathbf{z}$$, which we will approximate by some density function $$q$$ parametrized by $$\phi$$, $$q_{\phi}(\mathbf{z}|\mathbf{x})$$. This function can be interpreted as the updated belief of how $$\mathbf{z}$$ behaves after observing $$\mathbf{x}$$. For the sake of mathematical convenience, let us multiply and divide the previous result by this probability density:
 
 $$
 \log \int p_{\theta}(\mathbf{x}|\mathbf{z})p(\mathbf{z}) d\mathbf{z} = \log \int \frac{q_{\phi}(\mathbf{z}|\mathbf{x})}{q_{\phi}(\mathbf{z}|\mathbf{x})} p_{\theta}(\mathbf{x}|\mathbf{z}) p(\mathbf{z}) d\mathbf{z}
 $$
 
-We didn't produce the $$q_{\phi}(\mathbf{z}|\mathbf{x})$$ term just for kicks, we did it so we can write the integral as an expectation over $$q_{\phi}(\mathbf{z}|\mathbf{x})$$:
+We didn't produce the $$ q_{\phi}(\mathbf{z}|\mathbf{x}) $$ term just for kicks, we did it so we can write the integral as an expectation over $$ q_{\phi}(\mathbf{z}|\mathbf{x}) $$:
 
 $$
 \log \int \frac{q_{\phi}(\mathbf{z}|\mathbf{x})}{q_{\phi}(\mathbf{z}|\mathbf{x})} p_{\theta}(\mathbf{x}|\mathbf{z}) p(\mathbf{z}) d\mathbf{z} = \log \mathbb{E}_{q_{\phi}(\mathbf{z}|\mathbf{x})} \left[ \frac{p_{\theta}(\mathbf{x}|\mathbf{z}) p(\mathbf{z})}{q_{\phi}(\mathbf{z}|\mathbf{x})} \right]

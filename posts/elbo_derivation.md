@@ -10,7 +10,7 @@ $$
 \log \int p_{\theta}(\mathbf{x},\mathbf{z}) d\mathbf{z} = \log \int p_{\theta}(\mathbf{x}|\mathbf{z}) p(\mathbf{z}) d\mathbf{z}
 $$
 
-Currently in our derivation we have a prior distribution for $\mathbf{z}$, which is basically an educated guess as to what the latent distribution might look like. One of the quantities of interest is the posterior distribution of $\mathbf{z}$, which we will approximate by some density function $q$ parametrized by $\phi$, $q_{\phi}(\mathbf{z}|\mathbf{x})$. This function can be interpreted as the updated belief of how $\mathbf{z}$ behaves after observing $\mathbf{x}$. For the sake of mathematical convenience, let us multiply and divide the previous result by this probability density:
+Currently in our derivation we have a prior distribution for $$\mathbf{z}$$, which is basically an educated guess as to what the latent distribution might look like. One of the quantities of interest is the posterior distribution of $$\mathbf{z}$$, which we will approximate by some density function $q$ parametrized by $$\phi$$, $q_{\phi}(\mathbf{z}|\mathbf{x})$. This function can be interpreted as the updated belief of how $$\mathbf{z}$$ behaves after observing $\mathbf{x}$. For the sake of mathematical convenience, let us multiply and divide the previous result by this probability density:
 
 $$
 \log \int p_{\theta}(\mathbf{x}|\mathbf{z})p(\mathbf{z}) d\mathbf{z} = \log \int \frac{q_{\phi}(\mathbf{z}|\mathbf{x})}{q_{\phi}(\mathbf{z}|\mathbf{x})} p_{\theta}(\mathbf{x}|\mathbf{z}) p(\mathbf{z}) d\mathbf{z}

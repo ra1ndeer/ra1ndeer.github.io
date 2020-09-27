@@ -4,7 +4,7 @@ Project Iceberg is what I call my personal blog. Here you can find posts on mach
 ## Recent Posts
 ---
 
-[The Kullback-Leibler Divergence between two Bernoulli Distributions](./posts/kl_divergence_bernoulli.html)
+[Deriving the Evidence Lower Bound (ELBO)](./posts/elbo_derivation.html)
 
 
 ## About me

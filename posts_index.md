@@ -1,3 +1,3 @@
 # Posts
 
-[The Kullback-Leibler Divergence between two Bernoulli Distributions](./posts/kl_divergence_bernoulli.html)
+[Deriving the Evidence Lower Bound (ELBO)](./posts/elbo_derivation.html)

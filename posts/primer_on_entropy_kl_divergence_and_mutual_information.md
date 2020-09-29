@@ -109,6 +109,7 @@ Intuitively, the Kullback-Leibler divergence is zero if and only if $$p(x) = q(x
 We can also define the conditional Kullback-Leibler divergence, in a completely analogous way to what we've already done:
 
 $$\mathcal{D}_{KL} \left[ p(y \mid x) \parallel q(y \mid x) \right] = \int_{\mathcal{X}} \int_{\mathcal{Y}} p(x, y) \log \frac{p(y \mid x)}{q(y \mid x)} dy dx=$$
+
 $$ = \mathbb{E}_{p(x, y)} \left[ \log \frac{p(Y \mid X)}{ q(Y \mid X)} \right]$$
 
 After defining the conditional relative entropy, it seems natural to ask ourselves about the joint relative entropy:
@@ -145,7 +146,7 @@ $$=- \int_{\mathcal{X}} \int_{\mathcal{Y}} p(x, y) \log p(x) dy dx + \int_{\math
 
 $$= H[X] - H[X \mid Y]$$
 
-This means that the mutual information is the reduction in the uncertainty of $$X$$ due to knowledge of $$Y$$. Note that if instead of taking $$p(x, y) / p(x)(y) = p(x \mid y) / p(x)$$ we take it to be equal to $$p(y\midx)/p(y)$$, we can repeat the calculations above to obtain:
+This means that the mutual information is the reduction in the uncertainty of $$X$$ due to knowledge of $$Y$$. Note that if instead of taking $$p(x, y) / p(x)(y) = p(x \mid y) / p(x)$$ we take it to be equal to $$p(y\mid x)/p(y)$$, we can repeat the calculations above to obtain:
 
 $$I[X, Y] = H[Y] - H[Y \mid X]$$
 

@@ -1,5 +1,5 @@
 # Deriving the Evidence Lower Bound (ELBO)
-
+---
 In a variational setting, it is common to assume that the observations, $$\mathbf{x}$$, are generated according to some random, latent, unobserved process, $$\mathbf{z}$$, and that said generative process can be parametrized by $$\theta$$, $$p_{\theta}(\mathbf{x}, \mathbf{z}).$$ However, since there is no way of observing the latent process, it is necessary to integrate this quantity out:
 
 $$\log p_{\theta}(\mathbf{x}) = \log \int p_{\theta}(\mathbf{x}, \mathbf{z}) d \mathbf{z}$$
@@ -31,5 +31,5 @@ $$\equiv \mathcal{L}(\theta, \phi)$$
 In other words, we have successfully derived the evidence lower bound (ELBO), $$\mathcal{L}(\theta, \phi)$$.
 
 ### References
-
+---
 * Diederik P. Kingma and Max Welling, *Auto-Encoding Variational Bayes*, arXiv:1312.6114

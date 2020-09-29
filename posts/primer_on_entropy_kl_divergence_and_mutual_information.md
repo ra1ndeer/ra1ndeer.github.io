@@ -32,19 +32,25 @@ $$H \left[Y \mid X \right] = - \mathbb{E}_{p(x, y)} \left[ \log p(Y \mid X) \rig
 
 It is possible to move this formula around a bit so as to explicit what it actually means. First, we unfold the expectation and apply the definition of conditional probability $$p(x, y) = p(x)p(y \mid x)$$:
 
-$$- \mathbb{E}_{p(x, y)} \left[ \log p(Y \mid X) \right] = - \int_{\mathcal{X}} \int_{\mathcal{Y}} p(x,y) \log p(y \mid x) dy dx = -\int_{\mathcal{X}} \int_{\mathcal{Y}} p(x) p(y \mid x) \log p(y \mid x) dy dx $$
+$$- \mathbb{E}_{p(x, y)} \left[ \log p(Y \mid X) \right] = - \int_{\mathcal{X}} \int_{\mathcal{Y}} p(x,y) \log p(y \mid x) dy dx = $$
+
+$$= -\int_{\mathcal{X}} \int_{\mathcal{Y}} p(x) p(y \mid x) \log p(y \mid x) dy dx $$
 
 Since $$p(x)$$ has, obviously, no dependence on $$y$$, we can isolate it from the integration over $$\mathcal{Y}$$:
 
-$$-\int_{\mathcal{X}} \int_{\mathcal{Y}} p(x) p(y \mid x) \log p(y \mid x) dy dx = -\int_{\mathcal{X}} p(x) \int_{\mathcal{Y}} p(y \mid x) \log p(y \mid x) dy dx $$
+$$-\int_{\mathcal{X}} \int_{\mathcal{Y}} p(x) p(y \mid x) \log p(y \mid x) dy dx = $$
 
-Now note the integral of the innermost integral: the distribution $$p(y \mid x)$$ featured is the distribution of $$y$$ given **one** specific value of $$X$$, $$x$$. In other words, it's the entropy of $$Y$$ given $$X = x$$:
+$$= -\int_{\mathcal{X}} p(x) \int_{\mathcal{Y}} p(y \mid x) \log p(y \mid x) dy dx $$
+
+Now note the integrand of the innermost integral: the distribution $$p(y \mid x)$$ featured is the distribution of $$y$$ given **one** specific value of $$X$$, $$x$$. In other words, it's the entropy of $$Y$$ given $$X = x$$:
 
 $$ -\int_{\mathcal{X}} p(x) \int_{\mathcal{Y}} p(y \mid x) \log p(y \mid x) dy dx = \int p(x) H(Y \mid X = x) dx$$
 
 Meaning we can interpret the conditional entropy of $$Y$$ given $$X$$ as a weighted sum (with weights given by the probabilities of each possible value of $$X$$) of the entropy of $$Y$$ given each individual value of $$X$$, $$x$$. Additionally, we may ask ourselves if the entropy of $$Y$$ given $$X$$ is equal to the entropy of $$X$$ given $$Y$$. Let us investigate this statement by manipulating the equation for the entropy of $$Y$$ given $$X$$.
 
-$$H\left[ Y \mid X \right] = - \int_{\mathcal{X}} \int_{\mathcal{Y}} p(x, y) \log p(y \mid x) dy dx = - \int_{\mathcal{X}} \int_{\mathcal{Y}} p(x, y) \log \frac{p(x)p(x \mid y)}{p(y)} dy dx $$
+$$H\left[ Y \mid X \right] = - \int_{\mathcal{X}} \int_{\mathcal{Y}} p(x, y) \log p(y \mid x) dy dx =$$
+
+$$= - \int_{\mathcal{X}} \int_{\mathcal{Y}} p(x, y) \log \frac{p(x)p(x \mid y)}{p(y)} dy dx $$
 
 We can now split the above integral into the sum of three easily identifiable integrals:
 
@@ -60,7 +66,9 @@ Which means that the conditional entropies are only equal if the entropies thems
 
 There is a rather natural connection between the three types of entropy we have just seen, which can be easily derived from the joint entropy. We begin by applying the definition of conditional probability:
 
-$$H \left[ X, Y \right] = - \int_{\mathcal{X}} \int_{\mathcal{Y}} p(x, y) \log p(x, y) dy dx = - \int_{\mathcal{X}} \int_{\mathcal{Y}} p(x, y) \log \left[ p(x) p(y \mid x) \right] dy dx$$
+$$H \left[ X, Y \right] = - \int_{\mathcal{X}} \int_{\mathcal{Y}} p(x, y) \log p(x, y) dy dx = $$
+
+$$ = - \int_{\mathcal{X}} \int_{\mathcal{Y}} p(x, y) \log \left[ p(x) p(y \mid x) \right] dy dx$$
 
 Since the logarithm of the product is the sum of each individual logarithm, we can split the above result into two integrals:
 
@@ -88,7 +96,9 @@ $$\mathcal{D}_{KL} \left[p \parallel q \right] = \mathbb{E}_{p(x)} \left[ \log \
 
 Similarly to entropy, the Kullback-Leibler divergence is non-negative, being zero only when $$p(x) = q(x), \forall x \in \mathcal{X}$$. To prove this, we start by taking the negative of the KL divergence over the support of $$p(x)$$, $$A$$, and apply Jensen's inequality:
 
-$$- \mathcal{D}_{KL} \left[p \parallel q \right] =  \int_A p(x) \log \frac{q(x)}{p(x)}dx = \mathbb{E}_{p(x)} \left[ \log \frac{q(X)}{p(X)} \right] \leq \log \mathbb{E}_{p(x)} \left[ \frac{q(X)}{p(X)} \right]$$
+$$- \mathcal{D}_{KL} \left[p \parallel q \right] =  \int_A p(x) \log \frac{q(x)}{p(x)}dx =$$
+
+$$ = \mathbb{E}_{p(x)} \left[ \log \frac{q(X)}{p(X)} \right] \leq \log \mathbb{E}_{p(x)} \left[ \frac{q(X)}{p(X)} \right]$$
 
 Now we make a simple statement: the support of $$p(x)$$, $$A$$, is smaller or equal to the sample space $$\mathcal{X}$$. As a consequence of this, we have that $$\int_A q(x) dx \leq \int_{\mathcal{X}} q(x) dx = 1$$. Which means we can write:
 
@@ -98,11 +108,14 @@ Intuitively, the Kullback-Leibler divergence is zero if and only if $$p(x) = q(x
 
 We can also define the conditional Kullback-Leibler divergence, in a completely analogous way to what we've already done:
 
-$$\mathcal{D}_{KL} \left[ p(y \mid x) \parallel q(y \mid x) \right] = \int_{\mathcal{X}} \int_{\mathcal{Y}} p(x, y) \log \frac{p(y \mid x)}{q(y \mid x)} dy dx = \mathbb{E}_{p(x, y)} \left[ \log \frac{p(Y \mid X)}{ q(Y \mid X)} \right]$$
+$$\mathcal{D}_{KL} \left[ p(y \mid x) \parallel q(y \mid x) \right] = \int_{\mathcal{X}} \int_{\mathcal{Y}} p(x, y) \log \frac{p(y \mid x)}{q(y \mid x)} dy dx=$$
+$$ = \mathbb{E}_{p(x, y)} \left[ \log \frac{p(Y \mid X)}{ q(Y \mid X)} \right]$$
 
 After defining the conditional relative entropy, it seems natural to ask ourselves about the joint relative entropy:
 
-$$\mathcal{D}_{KL} \left[ p(x, y) \parallel q(x, y) \right] = \int_{\mathcal{X}} \int_{\mathcal{Y}} p(x, y) \log \frac{p(x, y)}{q(x, y)} dy dx = \mathbb{E}_{p(x, y)} \left[ \log \frac{p(X, Y)}{q(X, Y)} \right]$$
+$$\mathcal{D}_{KL} \left[ p(x, y) \parallel q(x, y) \right] = \int_{\mathcal{X}} \int_{\mathcal{Y}} p(x, y) \log \frac{p(x, y)}{q(x, y)} dy dx =$$
+
+$$= \mathbb{E}_{p(x, y)} \left[ \log \frac{p(X, Y)}{q(X, Y)} \right]$$
 
 By the definition of conditional probability, we can relate the above relative entropies through one simple expression, which is sometimes called the chain rule for relative entropy:
 
@@ -124,13 +137,15 @@ $$I\left[ X, Y \right] = \mathbb{E}_{p(x, y)} \left[ \log \frac{p(X, Y)}{p(X)p(Y
 
 It is immediate to see that the mutual information is symmetric, *i.e.*, $$I[X, Y] = I[Y, X]$$. The mutual information is fundamental to fill in the gap between entropy concepts. It relates to entropy and entropy through the following expression:
 
-$$I[X, Y] = \int_{\mathcal{X}} \int_{\mathcal{Y}} p(x, y) \log \frac{p(x,y)}{p(x)p(y)} dy dx = \int_{\mathcal{X}} \int_{\mathcal{Y}} p(x, y) \log \frac{p(x \mid y)}{p(x)} dy dx=$$
+$$I[X, Y] = \int_{\mathcal{X}} \int_{\mathcal{Y}} p(x, y) \log \frac{p(x,y)}{p(x)p(y)} dy dx = $$
+
+$$=\int_{\mathcal{X}} \int_{\mathcal{Y}} p(x, y) \log \frac{p(x \mid y)}{p(x)} dy dx=$$
 
 $$=- \int_{\mathcal{X}} \int_{\mathcal{Y}} p(x, y) \log p(x) dy dx + \int_{\mathcal{X}} \int_{\mathcal{Y}} p(x, y) \log p(x \mid y) dy dx =$$
 
 $$= H[X] - H[X \mid Y]$$
 
-This means that the mutual information is the reduction in the uncertainty of $$X$$ due to knowledge of $$Y$$. Note that if instead of taking $$p(x, y) / p(x)(y) = p(x \mid y) / p(x)$$ we take it to be equal to $$p(y|x)/p(y)$$, we can repeat the calculations above to obtain:
+This means that the mutual information is the reduction in the uncertainty of $$X$$ due to knowledge of $$Y$$. Note that if instead of taking $$p(x, y) / p(x)(y) = p(x \mid y) / p(x)$$ we take it to be equal to $$p(y\midx)/p(y)$$, we can repeat the calculations above to obtain:
 
 $$I[X, Y] = H[Y] - H[Y \mid X]$$
 

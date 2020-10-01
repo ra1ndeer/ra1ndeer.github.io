@@ -12,7 +12,7 @@ $$\log f(\vec x; \vec \mu, \Sigma) = -\frac{1}{2} \log \left[ (2 \pi)^D \mid \Si
 
 $$ = -\frac{1}{2} D \log(2 \pi) - \frac{1}{2} \log \mid \Sigma \mid - \frac{1}{2}(\vec x - \vec \mu)^T \Sigma^{-1}(\vec x - \vec \mu)$$
 
-So now we are all set to start calculating the Kullback-Leibler divergence (see [this post](./primer/info_theory.html) if you do not know/remember what this divergence is) between two such distributions. Let $$ p(\vec x) $$ be a multivariate Normal density parametrized by $\vec \mu_0$ and $$\Sigma_0$$, and let $$q(\vec x)$$ be of the same kind but parametrized by $$\vec \mu_1$$ and $$\Sigma_1$$ instead. We begin by splitting the logarithm:
+So now we are all set to start calculating the Kullback-Leibler divergence (see [this post](./primer_info_theory.html) if you do not know/remember what this divergence is) between two such distributions. Let $$ p(\vec x) $$ be a multivariate Normal density parametrized by $$\vec \mu_0$$ and $$\Sigma_0$$, and let $$q(\vec x)$$ be of the same kind but parametrized by $$\vec \mu_1$$ and $$\Sigma_1$$ instead. We begin by splitting the logarithm:
 
 $$\mathcal{D}_{KL} \left[ p \parallel q \right] = \mathbb{E}_{p(x)} \left[ \log \frac{p(x)}{q(x)} \right] = $$
 
@@ -20,13 +20,13 @@ $$= \mathbb{E}_{p(x)} \left[ \log p(x) - \log q(x) \right]$$
 
 Plugging in the log-density functions yields:
 
-$$ \mathbb{E}_{p(x)} \left[ - \frac{1}{2} D \log (2 \pi) - \frac{1}{2} \log \mid \Sigma_0\mid - \frac{1}{2}(\vec x - \vec \mu_0)^T \Sigma_0^{-1} (\vec x - \vec \mu_0) \right] + $$
+$$ \mathbb{E}_{p(\vec x)} \left[ - \frac{1}{2} D \log (2 \pi) - \frac{1}{2} \log \mid \Sigma_0\mid - \frac{1}{2}(\vec x - \vec \mu_0)^T \Sigma_0^{-1} (\vec x - \vec \mu_0) \right] + $$
 
-$$+ \mathbb{E}_{p(x)} \left[ \frac{1}{2} D \log (2 \pi) + \frac{1}{2} \log \mid \Sigma_1 \mid + \frac{1}{2} (\vec x - \vec \mu_1)^T \Sigma_1^{-1} (\vec x - \vec \mu_1) \right] = $$
+$$+ \mathbb{E}_{p(\vec x)} \left[ \frac{1}{2} D \log (2 \pi) + \frac{1}{2} \log \mid \Sigma_1 \mid + \frac{1}{2} (\vec x - \vec \mu_1)^T \Sigma_1^{-1} (\vec x - \vec \mu_1) \right] = $$
 
-$$= \frac{1}{2} \log \frac{\mid \Sigma_1 \mid}{\mid \Sigma_0 \mid} + \frac{1}{2} \mathbb{E}_{p(x)} \left[ (\vec x - \vec \mu_1)^T \Sigma_1^{-1} (\vec x - \vec \mu_1) \right] - $$
+$$= \frac{1}{2} \log \frac{\mid \Sigma_1 \mid}{\mid \Sigma_0 \mid} + \frac{1}{2} \mathbb{E}_{p(\vec x)} \left[ (\vec x - \vec \mu_1)^T \Sigma_1^{-1} (\vec x - \vec \mu_1) \right] - $$
 
-$$ - \frac{1}{2} \mathbb{E}_{p(x)} \left[ (\vec x - \vec \mu_0)^T \Sigma_0^{-1} (\vec x - \vec \mu_0) \right]  $$
+$$ - \frac{1}{2} \mathbb{E}_{p(\vec x)} \left[ (\vec x - \vec \mu_0)^T \Sigma_0^{-1} (\vec x - \vec \mu_0) \right]  $$
 
 And now for a painfully obvious statement: the trace of a number is the number itself, *i.e*, if $$x \in \mathbb{R}$$ then $$tr \{ x\} = x$$. Since the values inside the expectations are quadratic forms, we can simply take their trace without changing anything else in the equation. But wait, there's one more painfully obvious statement. The trace can also be taken with respect to the expectation, since it is also a single number. So why do we need the trace? Because it is cyclic, *i.e.*, $$tr\{ABC\} = tr\{ CAB \} = tr\{ BCA \}$$. This means that we can cycle the trace factors freely. And that's exactly what we'll do:
 

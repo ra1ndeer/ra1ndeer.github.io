@@ -14,9 +14,9 @@ $$ = -\frac{1}{2} D \log(2 \pi) - \frac{1}{2} \log \mid \Sigma \mid - \frac{1}{2
 
 So now we are all set to start calculating the Kullback-Leibler divergence (see [this post](./primer_info_theory.html) if you do not know/remember what this divergence is) between two such distributions. Let $$ p(\vec x) $$ be a multivariate Normal density parametrized by $$\vec \mu_0$$ and $$\Sigma_0$$, and let $$q(\vec x)$$ be of the same kind but parametrized by $$\vec \mu_1$$ and $$\Sigma_1$$ instead. We begin by splitting the logarithm:
 
-$$\mathcal{D}_{KL} \left[ p \parallel q \right] = \mathbb{E}_{p(x)} \left[ \log \frac{p(x)}{q(x)} \right] = $$
+$$\mathcal{D}_{KL} \left[ p \parallel q \right] = \mathbb{E}_{p(\vec x)} \left[ \log \frac{p(\vec x)}{q(\vec x)} \right] = $$
 
-$$= \mathbb{E}_{p(x)} \left[ \log p(x) - \log q(x) \right]$$
+$$= \mathbb{E}_{p(\vec x)} \left[ \log p(\vec x) - \log q(\vec x) \right]$$
 
 Plugging in the log-density functions yields:
 

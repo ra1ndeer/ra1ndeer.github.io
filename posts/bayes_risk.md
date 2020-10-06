@@ -29,7 +29,7 @@ To define an actual classifier (or decision function), it suffices to consider s
 
 $$g^*(x) = \mathbb{I}_{\{\eta(x) > 1/2\}}$$
 
-where $$\mathbb{I}_{\{A\}}(x)$$ is the indicator function (one when $$x \in A$$ and zero otherwise), is the Is the decision function that minimizes the error probability. To prove this, let us consider some other completely arbitrary decision function $$g : \mathbb{R}^D \rightarrow \{0, 1\}$$, and let us write the conditional error probability for this function $$g$$ given $$X=x$$:
+where $$\mathbb{I}_{\{A\}}(x)$$ is the indicator function (one when $$x \in A$$ and zero otherwise), is the decision function that minimizes the error probability. To prove this, let us consider some other completely arbitrary decision function $$g : \mathbb{R}^D \rightarrow \{0, 1\}$$, and let us write the conditional error probability for this function $$g$$ given $$X=x$$:
 
 $$\mathbb{P}[g(X) \neq Y \mid X=x] = $$
 
@@ -104,6 +104,6 @@ The above inequality states that, if we have an approximate posterior distributi
 
 ### References
 
-* Luc Devroye, László Györfi, Gábor Lugosi, *A Probabilistic Theory of Patter Recognition*
+* Luc Devroye, László Györfi, Gábor Lugosi, *A Probabilistic Theory of Pattern Recognition*
 * Kai Lai Chung, *A Course in Probability Theory*
 

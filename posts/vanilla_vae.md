@@ -65,7 +65,7 @@ Now, to build the VAE, we require only to put these two modules together and inc
 
 
 <p align="center">
-  <img width="460" height="300" src="./posts_imgs/vanilla_vae_network.png">
+  <img width="450" height="200" src="./posts_imgs/vanilla_vae_network.png">
 </p>
 
 
@@ -84,37 +84,22 @@ However, the Kullback-Leibler divergence term requires a bit more of mathematica
 $$\mathcal{D}\left[ q_{\phi}(\vec z \mid \vec x) \parallel  p(\vec z)\right] = \frac{1}{2} \sum_{i=1}^D \left[ \mu_i^2 + \sigma_i^2 - \log \sigma_i^2 - 1 \right]$$
 
 ## Tracking the Training Process
-
 ---
-
-![VAE KL divergence across epochs](./posts_imgs/vanilla_vae_kl.png)
-
 <p align="center">
   <img width="460" height="300" src="./posts_imgs/vanilla_vae_kl.png">
 </p>
-
-![VAE binary cross entropy across epochs](./posts_imgs/vanilla_vae_xentropy.png)
-
 <p align="center">
   <img width="460" height="300" src="./posts_imgs/vanilla_vae_xentropy.png">
 </p>
-
-![VAE ELBO over training epochs](./posts_imgs/vanilla_vae_elbo.png)
-
 <p align="center">
   <img width="460" height="300" src="./posts_imgs/vanilla_vae_elbo.png">
 </p>
 
 ## VAEs are Generative Models!
-
 ---
-
 There are two cool things about VAEs: the first is that, for new observations, we can estimate the likelihood of said observation belonging to our model, which can be used to devised anomaly detection routines. The second is that we can generate new samples by simply unplugging the encoder and feeding unit Gaussian noise directly onto the decoder! Below are some randomly generated samples:
-
-![Generated samples by the VAE](./posts_imgs/vanilla_vae_samples.png)
-
 <p align="center">
-  <img width="460" height="300" src="./posts_imgs/vanilla_vae_samples.png">
+  <img width="460" height="460" src="./posts_imgs/vanilla_vae_samples.png">
 </p>
 
 ### References

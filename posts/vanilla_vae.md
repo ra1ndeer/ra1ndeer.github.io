@@ -6,7 +6,7 @@
 
 ---
 
-Auto-encoders are a well known class of machine learning methods that take some $$N$$-dimensional input, $$\mathbf{x}$$, and attempt to learn the parameters, $$\lambda$$, of a function $$f_{\phi}(\mathbf{x}) : \mathbb{R}^N \rightarrow \mathbb{R}^D$$, with $$D < N$$. This function $$f_{\phi}$$ is called the encoder and the $$D$$-dimensional space is called the latent space. In their simplest (and most optimistic) form, auto-encoders learn a one-to-one mapping of the inputs, $$\mathbf{x}$$ onto the latent space $$\mathbf{z}$$. After encoding the inputs, the latent code $$\mathbf{z}$$ is then fed into another function $$g_{\theta}(\mathbf{z}) : \mathbb{R}^D \rightarrow \mathbb{R}^N$$, called decoder. This function attempts to reverse the encoding and to reproduce the input. Variational auto-encoders (henceforth referred to as VAEs) do not assume a deterministic mapping. In this setting, the latent codes are assumed to have some distribution and the encoder outputs the parameters of said distribution. Afterwards, a code $\mathbf{z}$ is produced using the *reparametrization trick* and fed onto the decoder. However, the optimization scheme, namely the loss function, is not the same as in the vanilla auto-encoder. The VAE makes use of the Evidence Lower Bound (ELBO) which is derived [here](./elbo_derivation.html).
+Auto-encoders are a well known class of machine learning methods that take some $$N$$-dimensional input, $$\mathbf{x}$$, and attempt to learn the parameters, $$\lambda$$, of a function $$f_{\phi}(\mathbf{x}) : \mathbb{R}^N \rightarrow \mathbb{R}^D$$, with $$D < N$$. This function $$f_{\phi}$$ is called the encoder and the $$D$$-dimensional space is called the latent space. In their simplest (and most optimistic) form, auto-encoders learn a one-to-one mapping of the inputs, $$\mathbf{x}$$ onto the latent space $$\mathbf{z}$$. After encoding the inputs, the latent code $$\mathbf{z}$$ is then fed into another function $$g_{\theta}(\mathbf{z}) : \mathbb{R}^D \rightarrow \mathbb{R}^N$$, called decoder. This function attempts to reverse the encoding and to reproduce the input. Variational auto-encoders (henceforth referred to as VAEs) do not assume a deterministic mapping. In this setting, the latent codes are assumed to have some distribution and the encoder outputs the parameters of said distribution. Afterwards, a code $$\mathbf{z}$$ is produced using the *reparametrization trick* and fed onto the decoder. However, the optimization scheme, namely the loss function, is not the same as in the vanilla auto-encoder. The VAE makes use of the Evidence Lower Bound (ELBO) which is derived [here](./elbo_derivation.html).
 
 ## Optimization Scheme for Variational Inference
 
@@ -63,7 +63,11 @@ where $$\sigma(x) = 1 / (1 + \exp(-x))$$ is the sigmoid function applied in an e
 
 Now, to build the VAE, we require only to put these two modules together and include the aforementioned reparametrization trick, as the figure below describes.
 
-ADD FIGURE
+```html
+<p align="center">
+  <img width="460" height="300" src="./posts_imgs/vanilla_vae_network.png">
+</p>
+```
 
 ## The Data
 

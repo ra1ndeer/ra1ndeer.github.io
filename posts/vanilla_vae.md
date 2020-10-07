@@ -63,11 +63,11 @@ where $$\sigma(x) = 1 / (1 + \exp(-x))$$ is the sigmoid function applied in an e
 
 Now, to build the VAE, we require only to put these two modules together and include the aforementioned reparametrization trick, as the figure below describes.
 
-```html
+
 <p align="center">
   <img width="460" height="300" src="./posts_imgs/vanilla_vae_network.png">
 </p>
-```
+
 
 ## The Data
 
@@ -89,9 +89,21 @@ $$\mathcal{D}\left[ q_{\phi}(\vec z \mid \vec x) \parallel  p(\vec z)\right] = \
 
 ![VAE KL divergence across epochs](./posts_imgs/vanilla_vae_kl.png)
 
+<p align="center">
+  <img width="460" height="300" src="./posts_imgs/vanilla_vae_kl.png">
+</p>
+
 ![VAE binary cross entropy across epochs](./posts_imgs/vanilla_vae_xentropy.png)
 
+<p align="center">
+  <img width="460" height="300" src="./posts_imgs/vanilla_vae_xentropy.png">
+</p>
+
 ![VAE ELBO over training epochs](./posts_imgs/vanilla_vae_elbo.png)
+
+<p align="center">
+  <img width="460" height="300" src="./posts_imgs/vanilla_vae_elbo.png">
+</p>
 
 ## VAEs are Generative Models!
 
@@ -100,6 +112,10 @@ $$\mathcal{D}\left[ q_{\phi}(\vec z \mid \vec x) \parallel  p(\vec z)\right] = \
 There are two cool things about VAEs: the first is that, for new observations, we can estimate the likelihood of said observation belonging to our model, which can be used to devised anomaly detection routines. The second is that we can generate new samples by simply unplugging the encoder and feeding unit Gaussian noise directly onto the decoder! Below are some randomly generated samples:
 
 ![Generated samples by the VAE](./posts_imgs/vanilla_vae_samples.png)
+
+<p align="center">
+  <img width="460" height="300" src="./posts_imgs/vanilla_vae_samples.png">
+</p>
 
 ### References
 

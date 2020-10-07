@@ -1,5 +1,7 @@
 # Variational Auto-Encoders
 
+The code for this article can be found [here](https://github.com/ra1ndeer/vanilla-vae).
+
 ---
 
 ## Introduction
@@ -14,7 +16,9 @@ Auto-encoders are a well known class of machine learning methods that take some 
 
 The simplest optimization schemes that can be thought of are gradient-based methods, which require the computation of the gradient with respect to the learnable parameters, in this case, there are two gradients to consider: the one with respect to the variational parameters, $$\phi$$, and the one with respect to $$\theta$$. The latter causes no trouble whatsoever:
 
-$$\nabla_{\theta}\left[ ELBO(\phi, \theta) \right] = - \nabla_{\theta} \left[ \mathbb{E}_{q_{\phi}(\mathbf{z}\mid\mathbf{x})}\left[ \log p_{\theta}(\mathbf{x}\mid\mathbf{z}) \right] \right] = - \mathbb{E}_{q_{\phi}(\mathbf{z}\mid\mathbf{x})}\left[ \nabla_{\theta} \log p_{\theta}(\mathbf{x}\mid\mathbf{z}) \right] $$
+$$\nabla_{\theta}\left[ ELBO(\phi, \theta) \right] = - \nabla_{\theta} \left[ \mathbb{E}_{q_{\phi}(\mathbf{z}\mid\mathbf{x})}\left[ \log p_{\theta}(\mathbf{x}\mid\mathbf{z}) \right] \right] = $$
+
+$$=- \mathbb{E}_{q_{\phi}(\mathbf{z}\mid\mathbf{x})}\left[ \nabla_{\theta} \log p_{\theta}(\mathbf{x}\mid\mathbf{z}) \right] $$
 
 Where the last step is possible due to the linearity of the expectation and gradient operators. However, for the gradient with respect to $\phi$ the result is not as straightforward:
 
@@ -53,7 +57,7 @@ We can model our inference network, $$ \log q_{\phi}(\mathbf{z}\mid\mathbf{x}) =
 * $$\mu = \mathbf{W}_2 \mathbf{h} + \mathbf{b}_2$$;
 * $$\log \sigma^2 = \mathbf{W}_3 \mathbf{h} + \mathbf{b}_3$$,
 
-where $h$ has dimension $K$ which is smaller than the input's dimension but larger than the latent space's dimension, and $$\{\mathbf{W}_1, \mathbf{W}_2, \mathbf{W}_3,\mathbf{b}_1, \mathbf{b}_2, \mathbf{b}_3 \}$$ are the weights and biases of the MLP.
+where $$h$$ has dimension $$K$$ which is smaller than the input's dimension but larger than the latent space's dimension, and $$\{\mathbf{W}_1, \mathbf{W}_2, \mathbf{W}_3,\mathbf{b}_1, \mathbf{b}_2, \mathbf{b}_3 \}$$ are the weights and biases of the MLP.
 
 The other part of the VAE is the recognition network, the probabilistic decoder, which takes in an element of the latent space and attempts to construct an output that resembles the input. Similarly to before, this is also given by an MLP:
 * $$\mathbf{h'} = \tanh(\mathbf{W}_4 \mathbf{z} + \mathbf{b}_4)$$;
@@ -67,8 +71,6 @@ Now, to build the VAE, we require only to put these two modules together and inc
 <p align="center">
   <img width="450" height="200" src="./posts_imgs/vanilla_vae_network.png">
 </p>
-
-
 ## The Data
 
 ---

@@ -18,13 +18,19 @@ $$\nabla_{\theta}\left[ ELBO(\phi, \theta) \right] = - \nabla_{\theta} \left[ \m
 
 Where the last step is possible due to the linearity of the expectation and gradient operators. However, for the gradient with respect to $\phi$ the result is not as straightforward:
 
-$$\nabla_{\phi}[ELBO(\phi, \theta)] = \nabla_{\phi}[\mathbb{E}_{q_{\phi}(\mathbf{z}\mid\mathbf{x})}[\log q_{\phi}(\mathbf{z}\mid\mathbf{x})]] -\nabla_{\phi}[ \mathbb{E}_{q_{\phi}(\mathbf{z}\mid\mathbf{x})} [\log p_{\theta}(\mathbf{x}, \mathbf{z})]] =$$ 
+$$\nabla_{\phi}[ELBO(\phi, \theta)] = $$
+
+$$=\nabla_{\phi}[\mathbb{E}_{q_{\phi}(\mathbf{z}\mid\mathbf{x})}[\log q_{\phi}(\mathbf{z}\mid\mathbf{x})]] -\nabla_{\phi}[ \mathbb{E}_{q_{\phi}(\mathbf{z}\mid\mathbf{x})} [\log p_{\theta}(\mathbf{x}, \mathbf{z})]] =$$ 
 
 $$ =  \nabla_{\phi} \sum_{\mathbf{z}} q_{\phi}(\mathbf{z}\mid\mathbf{x}) \log q_{\phi}(\mathbf{z}\mid\mathbf{x}) - \nabla_{\phi} \sum_{\mathbf{z}} q_{\phi}(\mathbf{z}\mid\mathbf{x}) \log p_{\theta}(\mathbf{x}, \mathbf{z})= $$
 
-$$ = \sum_{\mathbf{z}} \left[\log q_{\phi}(\mathbf{z}\mid\mathbf{x}) \nabla_{\phi}q_{\phi}(\mathbf{z}\mid\mathbf{x}) + q_{\phi}(\mathbf{z}\mid\mathbf{x}) \frac{\nabla q_{\phi}(\mathbf{z}\mid\mathbf{x})}{q_{\phi}(\mathbf{z}\mid\mathbf{x})}  \right] - \sum_{\mathbf{z}} \left[  \log p_{\theta}(\mathbf{x},\mathbf{z}) \nabla_{\phi} q_{\phi}(\mathbf{z}\mid\mathbf{x})   \right]= $$
+$$ = \sum_{\mathbf{z}} \left[\log q_{\phi}(\mathbf{z}\mid\mathbf{x}) \nabla_{\phi}q_{\phi}(\mathbf{z}\mid\mathbf{x}) + q_{\phi}(\mathbf{z}\mid\mathbf{x}) \frac{\nabla q_{\phi}(\mathbf{z}\mid\mathbf{x})}{q_{\phi}(\mathbf{z}\mid\mathbf{x})}  \right] -$$
 
-$$ = \sum_{\mathbf{z}} \left[ \nabla_{\phi}(q_{\phi}(\mathbf{z}\mid\mathbf{x}))  (\log q_{\phi}(\mathbf{z}\mid\mathbf{x}) + 1)   \right] - \sum_{\mathbf{z}} \left[  \log p_{\theta}(\mathbf{x},\mathbf{z}) \nabla_{\phi} q_{\phi}(\mathbf{z}\mid\mathbf{x})   \right] =$$ 
+$$ - \sum_{\mathbf{z}} \left[  \log p_{\theta}(\mathbf{x},\mathbf{z}) \nabla_{\phi} q_{\phi}(\mathbf{z}\mid\mathbf{x})   \right]= $$
+
+$$ = \sum_{\mathbf{z}} \left[ \nabla_{\phi}(q_{\phi}(\mathbf{z}\mid\mathbf{x}))  (\log q_{\phi}(\mathbf{z}\mid\mathbf{x}) + 1)   \right] - $$
+
+$$ - \sum_{\mathbf{z}} \left[  \log p_{\theta}(\mathbf{x},\mathbf{z}) \nabla_{\phi} q_{\phi}(\mathbf{z}\mid\mathbf{x})   \right] =$$ 
 
 $$ = \sum_{\mathbf{z}} \left[ \log q_{\phi}(\mathbf{z}\mid\mathbf{x}) - \log p_{\theta}(\mathbf{x}, \mathbf{z}) \right] \nabla_{\phi} q_{\phi}(\mathbf{z}\mid\mathbf{x}) =$$
 
@@ -50,10 +56,10 @@ We can model our inference network, $$ \log q_{\phi}(\mathbf{z}\mid\mathbf{x}) =
 where $h$ has dimension $K$ which is smaller than the input's dimension but larger than the latent space's dimension, and $$\{\mathbf{W}_1, \mathbf{W}_2, \mathbf{W}_3,\mathbf{b}_1, \mathbf{b}_2, \mathbf{b}_3 \}$$ are the weights and biases of the MLP.
 
 The other part of the VAE is the recognition network, the probabilistic decoder, which takes in an element of the latent space and attempts to construct an output that resembles the input. Similarly to before, this is also given by an MLP:
-* $$\mathbf{h'} = \tanh(\mathbf{W}_4 \mathbf{z} + \mathbf{b}_4)$$
+* $$\mathbf{h'} = \tanh(\mathbf{W}_4 \mathbf{z} + \mathbf{b}_4)$$;
 * $$\mathbf{\tilde{x}} = \sigma (\mathbf{W}_5 \mathbf{h'} + \mathbf{b}_5)$$,
 
-where $\sigma(x) = 1 / (1 + \exp(-x))$ is the sigmoid function applied in an element-wise fashion.
+where $$\sigma(x) = 1 / (1 + \exp(-x))$$ is the sigmoid function applied in an element-wise fashion.
 
 Now, to build the VAE, we require only to put these two modules together and include the aforementioned reparametrization trick, as the figure below describes.
 
@@ -69,7 +75,7 @@ Since the data type is fixed, the ELBO loss can now be put onto a more explicit 
 
 $$L_{\text{reconstruction}}(\mathbf{x}, \mathbf{\tilde{x}}) = - \sum_{i=1}^N x_i \log(1 - \tilde{x}_i) + (1 - x_i)\log(1 - \tilde{x}_i)$$
 
-However, the Kullback-Leibler divergence term requires a bit more of mathematical gymnastics to derive. Fortunately, I have already derived it [here](./kl_divergence_gaussians.html) (2 October 2020):
+However, the Kullback-Leibler divergence term requires a bit more of mathematical gymnastics to derive. Fortunately, I have already derived it [here](./kl_divergence_gaussians.html):
 
 $$\mathcal{D}\left[ q_{\phi}(\vec z \mid \vec x) \parallel  p(\vec z)\right] = \frac{1}{2} \sum_{i=1}^D \left[ \mu_i^2 + \sigma_i^2 - \log \sigma_i^2 - 1 \right]$$
 

@@ -1,4 +1,4 @@
-# Normalizing Flows
+# A Bit Theory for Normalizing Flows
 ---
 ## Motivation
 

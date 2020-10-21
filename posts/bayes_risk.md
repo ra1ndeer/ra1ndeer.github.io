@@ -103,7 +103,7 @@ The above inequality states that, if we have an approximate posterior distributi
 ---
 
 ### References
-
+---
 * Luc Devroye, László Györfi, Gábor Lugosi, *A Probabilistic Theory of Pattern Recognition*
 * Kai Lai Chung, *A Course in Probability Theory*
 

@@ -1,5 +1,6 @@
 # Posts
 ---
+* [Euclidean Distance and the Bregman Divergence](./posts/euclidean_bregman.html) (21 October 2020)
 * [A Bit of Theory for Normalizing Flows](./posts/normalizing_flows.html) (10 October 2020)
 * [Variational Auto-Encoder](./posts/vanilla_vae.html) (7 October 2020)
 * [Approximate Posteriors and L1 Convergence](./posts/bayes_risk.html) (6 October 2020)

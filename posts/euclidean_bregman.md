@@ -44,7 +44,7 @@ Additionally, convexity can be defined in terms of the Hessian (second order der
 
 Let us now consider two points, $$\xi$$ and $$\xi_0$$, of our manifold $$M$$, and some convex function $$\psi$$. The tangent hyperplane at the point $$\xi_0$$ is given by
 
-$$z = \psi(\xi_0) + \nabla\psi(\xi_0) \cdot (\xi - \xi_0)$$,
+$$z = \psi(\xi_0) + \nabla\psi(\xi_0) \cdot (\xi - \xi_0)$$
 
 where $$z$$ is the "vertical" axis and $$\nabla$$ is the gradient operator. Since the function $$\psi$$ is convex, the hyperplane given by the equation above is always below the function $$\psi$$, meaning that it is a supporting hyperplane. Now take the point $$\xi$$ and the value of $$\psi$$ at $$\xi$$, $$\psi(\xi)$$. To evaluate how high $$\psi(\xi)$$ is relative to the supporting hyperplane of $$\psi$$ at $$\xi_0$$, we simply write out their difference:
 

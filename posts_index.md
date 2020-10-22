@@ -1,6 +1,6 @@
 # Posts
 ---
-* [Legendre Transformation, Dual Coordinate Systems and Dual Divergence](./posts/legendre_transformation_dual_coordinates_and_divergence.html) (22 October 2020)
+* [Legendre Transformation, Dual Coordinate Systems and Dual Divergence](./posts/manifold_duality_basics.html) (22 October 2020)
 * [Euclidean Distance and the Bregman Divergence](./posts/euclidean_bregman.html) (21 October 2020)
 * [A Bit of Theory for Normalizing Flows](./posts/normalizing_flows.html) (10 October 2020)
 * [Variational Auto-Encoder](./posts/vanilla_vae.html) (7 October 2020)
